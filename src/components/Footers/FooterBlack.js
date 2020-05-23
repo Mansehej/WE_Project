@@ -9,45 +9,61 @@ import { Container, Row } from "reactstrap";
 function FooterBlack() {
   return (
     <>
-      <footer className="footer footer-black footer-white">
+      <footer className="footer footer-black" >
         <Container>
           <Row>
             <nav className="footer-nav">
               <ul>
                 <li>
+                  <h5>Made by</h5>
+                </li>
+                <li>
+                  
+                </li>
+                <li>
                   <a
-                    href="https://www.creative-tim.com?ref=pkpr-black-footer"
+                    href="https://www.linkedin.com/in/ayushi-11b349159/"
                     target="_blank"
                     className="mr-1"
                   >
-                    Creative Tim
+                    Ayushi Bajpai
                   </a>
                 </li>
                 <li>
                   <a
-                    href="http://blog.creative-tim.com/?ref=pkpr-black-footer"
+                    href="https://www.linkedin.com/in/lakshitamalhotra/"
                     target="_blank"
                     className="mr-1"
                   >
-                    Blog
+                    Lakshita Malhotra
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.creative-tim.com/license?ref=pkpr-black-footer"
+                    href="https://linkedin.com/in/mansehej"
                     target="_blank"
                   >
-                    Licenses
+                    Mansehej Singh
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/gaurav-jain-3201ab179/"
+                    target="_blank"
+                  >
+                    Gaurav Jain
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href=""
+                    target="_blank"
+                  >
+                    Puneet Mehandiratta
                   </a>
                 </li>
               </ul>
             </nav>
-            <div className="credits ml-auto">
-              <span className="copyright">
-                © {new Date().getFullYear()}
-                , made with <i className="fa fa-heart heart" /> by Creative Tim
-              </span>
-            </div>
           </Row>
         </Container>
       </footer>
