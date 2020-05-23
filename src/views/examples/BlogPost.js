@@ -2,26 +2,20 @@ import React, { useState } from "react";
 
 // reactstrap components
 import { Badge, Button, Card, Media, Container, Row, Col } from "reactstrap";
-
-// core components
-import ColorNavbar from "components/Navbars/ColorNavbar.js";
-// import BlogPostHeader from "components/Headers/BlogPostHeader.js";
-import FooterGray from "components/Footers/FooterGray.js";
-
+import WhiteNavbar from "components/Navbars/WhiteNavbar.js";
 import { db } from '../../firebase';
-import { createImportSpecifier } from "typescript";
+import FooterBlack from "components/Footers/FooterBlack";
 
 
 
-function BlogPost() {
+function BlogPost(props) {
 
   const [movie, setMovie] = useState({
   })
 
   if (Object.keys(movie).length == 0) {
-    db.collection('movie').doc('kaebl7zm6ab8xhcz3ow').get().then(doc => setMovie(doc.data()));
+    db.collection('movie').doc(props.match.params.id).get().then(doc => setMovie(doc.data()));
   }
-
 
   document.documentElement.classList.remove("nav-open");
   let pageHeader = React.createRef();
@@ -29,8 +23,7 @@ function BlogPost() {
 
   return (
     <>
-      <ColorNavbar />
-      {/* <BlogPostHeader /> */}
+      <WhiteNavbar />
       <div
         className="page-header"
         ref={pageHeader}
@@ -40,23 +33,6 @@ function BlogPost() {
         }}
       >
         <div className="filter" />
-        {/* <div className="content-center">
-          <div className="motto">
-            <h1 className="title-uppercase text-center">Paper Kit</h1>
-            <h3 className="text-center">Make your mark with a new design.</h3>
-            <br />
-            <Button
-              className="btn-round"
-              color="warning"
-              href="#pablo"
-              onClick={e => e.preventDefault()}
-              size="lg"
-            >
-              <i className="fa fa-share-alt mr-1 " />
-              Share Article
-            </Button>
-          </div>
-        </div> */}
       </div>
       <div className="wrapper">
         <div className="main">
@@ -68,49 +44,32 @@ function BlogPost() {
                   <h3 className="title-uppercase">
                     <small>Directed by {movie.director}</small>
                     <p className="image-thumb text-center">
-                    <Badge color="warning">{movie.rating}   stars</Badge> <br/>
-                    <Badge color="warning">{movie.duration}   minutes</Badge> 
+                      <Badge color="warning">{movie.rating}   stars</Badge> <br />
+                      <Badge color="warning">{movie.duration}   minutes</Badge>
 
-                    
+
                     </p>
                   </h3>
                 </Col>
               </Row>
               <Row>
-                {/* <Col className="ml-auto mr-auto" md="10">
-                  <div className="text-center">
-                    <a href="javascrip: void(0);">
-                      <h3 className="title">
-                        Make Somebody Nervous Before You Die
-                      </h3>
-                    </a>
-                    <h6 className="title-uppercase">October 10, 2016</h6>
-                  </div>
-                </Col> */}
+
                 <Col className="ml-auto mr-auto" md="8">
                   <a href="javascrip: void(0);">
                     <Card
                       data-radius="none"
-                      // style={{
-                      //   backgroundImage:
-                      //     movie.picture
-                      // }}
-                    />
-                    {/* <p className="image-thumb text-center">
-                    <Badge color="warning">{movie.genres}</Badge> <br/>
-                    <Badge color="warning">{movie.duration}</Badge> 
 
-                    
-                    </p> */}
+                    />
+
                   </a>
                   <div className="article-content">
-                    
+
                     <p>
-                      {movie.description }
+                      {movie.description}
                     </p>
                     <blockquote className="blockquote">
                       <p>
-                     <strong>   Released:       {movie.release_date} </strong>
+                        <strong>   Released:       {movie.release_date} </strong>
                       </p>
                     </blockquote>
                     <Row>
@@ -119,7 +78,6 @@ function BlogPost() {
                           <Card
                             data-radius="none"
                           />
-                          {/* end card */}
                         </a>
                       </Col>
                     </Row>
@@ -139,9 +97,9 @@ function BlogPost() {
                       <Row>
                         <Col md="6">
                           <h5>Tags:</h5>
-                         <Badge color="warning">{movie.genres}</Badge> <a/>
-                         <Badge color="warning">{movie.country}</Badge> <a/>
-                         <Badge color="warning">{movie.language}</Badge>
+                          <Badge color="warning">{movie.genres}</Badge> <a />
+                          <Badge color="warning">{movie.country}</Badge> <a />
+                          <Badge color="warning">{movie.language}</Badge>
 
 
                         </Col>
@@ -206,12 +164,8 @@ function BlogPost() {
                             <p>
                               {movie.comments}
                             </p>
-                            {/* end media */}
                           </Media>
                         </Media>
-                        {/* end media */}
-                        
-                        {/* end media */}
                       </div>
                     </Row>
                   </Container>
@@ -221,7 +175,7 @@ function BlogPost() {
           </div>
         </div>
       </div>
-      <FooterGray />
+      <FooterBlack />
     </>
   );
 }
