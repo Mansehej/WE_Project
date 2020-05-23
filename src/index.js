@@ -65,6 +65,7 @@ ReactDOM.render(
       <Route path="/about-us" render={props => <AboutUs {...props} />} />
       <Route path="/add-product" render={props => <AddProduct {...props} />} />
       <Route path="/blog-post" render={props => <BlogPost {...props} />} />
+      <Route path="/movie/:id" render={props => <BlogPost {...props} />} />
       <Route path="/blog-posts" render={props => <BlogPosts {...props} />} />
       <Route path="/contact-us" render={props => <ContactUs {...props} />} />
       <Route path="/discover" render={props => <Discover {...props} />} />
@@ -98,7 +99,6 @@ ReactDOM.render(
         path="/twitter-redesign"
         render={props => <TwitterRedesign {...props} />}
       />
-      <Redirect to="/presentation" />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
