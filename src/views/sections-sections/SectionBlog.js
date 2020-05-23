@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // reactstrap components
 import {
@@ -11,19 +11,28 @@ import {
   Row,
   Col,
 } from "reactstrap";
-
-import {db} from '../../firebase';
-
-db.collection('movie').doc('kaebl7zm6ab8xhcz3ow').get().then(doc => { console.log(doc.data()) });
+import { db } from '../../firebase';
 
 // core components
 
 function SectionBlog() {
+
+  let allMovies = []
+  const [movies, setMovies] = useState([])
+  if (Object.keys(movies).length == 0) {
+    db.collection('movie').orderBy('rating', "desc").limit(10).get().then(docs => {
+      docs.forEach(doc => {
+        allMovies.push(doc.data())
+      })
+      setMovies(allMovies)
+    })
+  }
+
   return (
     <>
       <div className="section secion-blog cd-section" id="blogs">
         {/* ********* BLOGS 1 ********* */}
-        
+
         {/* ********* END BLOGS 1 ********* */}
         {/* ********* BLOGS 2 ********* */}
         <div className="blog-2 section section-gray">
@@ -51,7 +60,7 @@ function SectionBlog() {
                             LinkedIn’s new desktop app arrives
                           </a>
                         </CardTitle>
-                       
+
                         <hr />
                         <CardFooter>
                           <div className="author">
@@ -165,7 +174,7 @@ function SectionBlog() {
         </div>
         {/* ********* END BLOGS 2 ********* */}
         {/* ********* BLOGS 3 ********* */}
-      
+
         {/* ********* END BLOGS 5 ********* */}
       </div>
     </>
