@@ -8,7 +8,36 @@ import ColorNavbar from "components/Navbars/ColorNavbar.js";
 import BlogPostHeader from "components/Headers/BlogPostHeader.js";
 import FooterGray from "components/Footers/FooterGray.js";
 
+import {db} from '../../firebase';
+
+
+
+  // this.onTableChange = this.onTableChange.bind(this);
+  // this.onColumnChange = this.onColumnChange.bind(this);
+  // this.renderTableHeaders = this.renderTableHeaders.bind(this);
+  // this.renderTableBody = this.renderTableBody.bind(this);
+  // this.getColumnList = this.getColumnList.bind(this);
+  // this.getData = this.getData.bind(this);
+
+  
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       title: '',
+//       picture: '',
+//       actors: '',
+//       description: '',
+//       auth: 'Basic ' + btoa(props.user + ':' + props.pass),
+//  }
+// }
+
+
+
 function BlogPost() {
+
+  let title
+  db.collection('movie').doc('kaebl7zm6ab8xhcz3ow').get().then(doc => {title = doc.data().title});
+
   document.documentElement.classList.remove("nav-open");
   React.useEffect(() => {
     document.body.classList.add("blog-post");
@@ -28,7 +57,7 @@ function BlogPost() {
             <Container>
               <Row>
                 <Col className="ml-auto mr-auto text-center title" md="6">
-                  <h2>A place for storytelling</h2>
+                  <h2>{title}</h2>
                   <h3 className="title-uppercase">
                     <small>Written by designers for designers</small>
                   </h3>
