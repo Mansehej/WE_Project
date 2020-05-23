@@ -22,7 +22,9 @@ function SectionBlog() {
   if (Object.keys(movies).length == 0) {
     db.collection('movie').orderBy('rating', "desc").limit(10).get().then(docs => {
       docs.forEach(doc => {
-        allMovies.push(doc.data())
+        let movieObj = doc.data()
+        movieObj['id'] = doc.id
+        allMovies.push(movieObj)
       })
       setMovies(allMovies)
     })
