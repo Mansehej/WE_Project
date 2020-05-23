@@ -26,7 +26,7 @@ function MoviesList({ movie }) {
               <img
                 alt="..."
                 className="img img-raised"
-                src={require("assets/img/sections/miguel-perales.jpg")}
+                src={movie.picture}
               />
             
           </div>
