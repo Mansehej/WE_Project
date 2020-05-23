@@ -5,7 +5,7 @@ import { Badge, Button, Card, Media, Container, Row, Col } from "reactstrap";
 
 // core components
 import ColorNavbar from "components/Navbars/ColorNavbar.js";
-import BlogPostHeader from "components/Headers/BlogPostHeader.js";
+// import BlogPostHeader from "components/Headers/BlogPostHeader.js";
 import FooterGray from "components/Footers/FooterGray.js";
 
 import { db } from '../../firebase';
@@ -24,11 +24,40 @@ function BlogPost() {
 
 
   document.documentElement.classList.remove("nav-open");
+  let pageHeader = React.createRef();
+
 
   return (
     <>
       <ColorNavbar />
-      <BlogPostHeader />
+      {/* <BlogPostHeader /> */}
+      <div
+        className="page-header"
+        ref={pageHeader}
+        style={{
+          backgroundImage:
+            "url(" + movie.picture + ")"
+        }}
+      >
+        <div className="filter" />
+        <div className="content-center">
+          <div className="motto">
+            <h1 className="title-uppercase text-center">Paper Kit</h1>
+            <h3 className="text-center">Make your mark with a new design.</h3>
+            <br />
+            <Button
+              className="btn-round"
+              color="warning"
+              href="#pablo"
+              onClick={e => e.preventDefault()}
+              size="lg"
+            >
+              <i className="fa fa-share-alt mr-1 " />
+              Share Article
+            </Button>
+          </div>
+        </div>
+      </div>
       <div className="wrapper">
         <div className="main">
           <div className="section section-white">
@@ -61,9 +90,7 @@ function BlogPost() {
                       data-radius="none"
                       style={{
                         backgroundImage:
-                          "url(" +
-                          require("assets/img/sections/daniel-olahs.jpg") +
-                          ")"
+                          movie.picture
                       }}
                     />
                     <p className="image-thumb text-center">
