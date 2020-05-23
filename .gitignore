@@ -105,3 +105,6 @@ dist
 
 # Firebase Config of Project
 src/firebaseConfig.json
+
+# Built files of Project
+build/
