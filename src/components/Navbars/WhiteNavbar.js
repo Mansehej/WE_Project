@@ -29,16 +29,6 @@ function WhiteNavbar() {
   });
   return (
     <>
-      {bodyClick ? (
-        <div
-          id="bodyClick"
-          onClick={() => {
-            document.documentElement.classList.toggle("nav-open");
-            setBodyClick(false);
-            setCollapseOpen(false);
-          }}
-        />
-      ) : null}
       <Navbar className="fixed-top" expand="lg" id="navbar-main">
         <Container>
           <div className="navbar-translate">
