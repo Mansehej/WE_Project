@@ -3,7 +3,6 @@ import { Redirect } from "react-router-dom";
 
 // reactstrap components
 import {
-  Button,
   Card,
   CardBody,
   CardFooter,
