@@ -26,7 +26,7 @@ function FooterBlack() {
                     target="_blank"
                     className="mr-1"
                   >
-                    Ayushi Bajpai
+                    Ayushi
                   </a>
                 </li>
                 <li>
