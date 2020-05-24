@@ -70,7 +70,7 @@ function SectionBlog() {
   }
 
   if (Object.keys(movies.movies).length == 0) {
-    db.collection('movie').orderBy('rating', "desc").limit(10).get().then(docs => {
+    db.collection('movie').orderBy('rating', "desc").limit(9).get().then(docs => {
       docs.forEach(doc => {
         let movieObj = doc.data()
         movieObj['id'] = doc.id
@@ -90,7 +90,7 @@ function SectionBlog() {
             <Col className="ml-auto mr-auto" md="10" style={{display: "flex", flexWrap: "wrap"}}>
               <br />
               {movies.movies.map((movie, index) => (
-                <div onClick={() => { redirectTo(movie.id) }} >
+                <div key={index} onClick={() => { redirectTo(movie.id) }} >
                   <MoviesList
                     key={index}
                     movie={movie}
