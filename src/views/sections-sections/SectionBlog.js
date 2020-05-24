@@ -20,11 +20,12 @@ function MoviesList({ movie }) {
 
   return (
     <>
-      <Col md="4" style={{ minWidth: "300px", marginBottom: "50px" }}>
-        <Card className="card-blog">
+      <Col md="4" style={{ minWidth: "200px", marginBottom: "50px" }}>
+        <Card className="card-blog" style={{width: "250px"}}>
           <div className="card-image">
               <img
                 alt="..."
+                style={{width: "100%", height: "350px"}}
                 className="img img-raised"
                 src={movie.picture}
               />
@@ -85,12 +86,12 @@ function SectionBlog() {
       <div className="section secion-blog cd-section" id="blogs" >
         <div className="blog-2 section section-gray">
           <Container>
-            <h2 className="title">Movies List</h2>
-
-            <Col className="ml-auto mr-auto" md="10">
+            <h2 className="title" style={{paddingLeft: "12%"}}>Movies List</h2>
+            <br />
+            <Col className="ml-auto mr-auto" md="10" style={{display: "flex", flexWrap: "wrap"}}>
               <br />
               {movies.movies.map((movie, index) => (
-                <div onClick={() => { redirectTo(movie.id) }}>
+                <div onClick={() => { redirectTo(movie.id) }} >
                   <MoviesList
                     key={index}
                     movie={movie}
