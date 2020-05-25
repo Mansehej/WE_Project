@@ -1,6 +1,14 @@
 # MovIT
 A website for movies which includes different categories like genere, actors, directors, IMDB ratings etc.
 
+## Current features
+- View top 10 rated movies on homepage. (With title, poster, IMDB rating, genre and director)
+- View full details of any movie by clicking on it. (Title, storyline, poster, IMDB rating, genre, director, actor list, duration, release year, country of origin, language, etc.)
+
+## Upcoming features
+- Pagination. (Database consists of over 100 movies)
+- Sorting and filtering according to rating, genre, language, actors, director, etc.
+
 ## Installation
 
 ### Create a new Firebase project
@@ -116,5 +124,11 @@ Click the link generated in the console to view the hosted app.
 
 ## Live Demo
 
-
 You can access the project's live demo [here](https://we-project-324ee.web.app/index)
+
+## Contributers
+- 42996303117 (Ayushi)
+- 43096303117 (Lakshita Malhotra)
+- 43196303117 (Mansehej Singh)
+- 43296303117 (Gaurav Jain)
+- 43396303117 (Puneet Mehandiratta)
